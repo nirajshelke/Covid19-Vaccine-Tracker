@@ -1,14 +1,33 @@
-# Salesforce DX Project: Next Steps
+# Covid19-Vaccine-Tracker
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This Application will provide you the updates of the Covid 19 vaccine vaialability slots in your disctrict and centers you provide on your mobile.
 
-## How Do You Plan to Deploy Your Changes?
+## Steps to follow After Deploying Project to Salesforce Org.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+To get these updates on mobile, Salesforce mobile application needs to be installed on mobile.
 
-## Configure Your Salesforce DX Project
+Execute Following Code in Aonymous Block to Schedule the Update Frequency
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+```
+// Schedule Vaccine Updates Frequency for every 5 mins.(Frequncy can be set as per choice)
+String district_Code = xxxx; //Mandatory - Code of your District on Cowin
+List<String> center_Pincodes = [xxxx,xxxx,...]; //Picode for ehich updates are required
+System.schedule('Vaccine Updates 1',  '0 00 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 2',  '0 05 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 3',  '0 10 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 4',  '0 15 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 5',  '0 20 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 6',  '0 25 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 7',  '0 30 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 8',  '0 35 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 9',  '0 40 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 10', '0 45 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 11', '0 50 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+System.schedule('Vaccine Updates 12', '0 55 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
+
+// Schedule Record Deletion
+System.schedule('Vaccine Updates Dalete', '0 0 4 1/1 * ? *', new DeleteVaccineUpdateScheduler());
+```
 
 ## Read All About It
 
