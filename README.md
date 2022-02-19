@@ -8,7 +8,7 @@ To get these updates on mobile, Salesforce mobile application needs to be instal
 
 Execute Following Code in Aonymous Block to Schedule the Update Frequency
 
-```
+```apex
 // Schedule Vaccine Updates Frequency for every 5 mins.(Frequncy can be set as per choice)
 String district_Code = xxxx; //Mandatory - Code of your District on Cowin
 List<String> center_Pincodes = [xxxx,xxxx,...]; //Pincode for ehich updates are required
