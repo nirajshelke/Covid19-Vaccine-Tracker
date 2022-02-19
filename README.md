@@ -11,7 +11,7 @@ Execute Following Code in Aonymous Block to Schedule the Update Frequency
 ```
 // Schedule Vaccine Updates Frequency for every 5 mins.(Frequncy can be set as per choice)
 String district_Code = xxxx; //Mandatory - Code of your District on Cowin
-List<String> center_Pincodes = [xxxx,xxxx,...]; //Picode for ehich updates are required
+List<String> center_Pincodes = [xxxx,xxxx,...]; //Pincode for ehich updates are required
 System.schedule('Vaccine Updates 1',  '0 00 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
 System.schedule('Vaccine Updates 2',  '0 05 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
 System.schedule('Vaccine Updates 3',  '0 10 * * * ?', new VaccineSlotAvailabilityScheduler(district_Code, center_Pincodes));
